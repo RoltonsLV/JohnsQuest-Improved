@@ -34,6 +34,8 @@ More improvements will be documented with each commit.
 
 The original version is named `JohnsQuest_v2_orig.py`.
 
+Do check out the original introduction video [here](https://www.youtube.com/watch?v=B4hFc0m-pLc)
+
 Original README follows:
 
 # **John's Quest v2[EN]**
