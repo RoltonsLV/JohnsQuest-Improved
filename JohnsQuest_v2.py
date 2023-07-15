@@ -82,16 +82,16 @@ game_data.write('USERNAME: ')
 game_data.write(username)
 
 
-print("\nDo you need the narrator's guidance?\n(type yes or no)")  # to either skip the narrator's guidence or not
+print("\nDo you wish to play the FULL STORY MODE?\n(type yes or no)")  # to either skip the narrator's guidence or not
 
 start_reply = input('[YOU] ')
 while str.lower(start_reply) != 'yes' and str.lower(start_reply) != 'no':
     system(clr)
     start_art()
-    print("\nDo you need the narrator's guidance?\n(type yes or no)")
+    print("\nDo you wish to play the FULL STORY MODE?\n(type yes or no)")
     start_reply = input('[YOU] ')
 
-game_data.write("\nnarrator's guide: " + start_reply)
+game_data.write("\nFULL STORY MODE: " + start_reply)
 
 print('\n<To start the game, type "Start">')
 start = input('[YOU] ')
