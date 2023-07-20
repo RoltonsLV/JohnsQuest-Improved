@@ -30,7 +30,8 @@
     },
     "fullstory": {
         "havemoney":"Anyways, you now have ${money:.2f}. Be sure to save it for later too :", 
-        "secret":"Secret..", "actualsecret":"Your amount of health actually depends on what you eat.", 
+        "secret":"Secret..", 
+        "actualsecret":"Your amount of health actually depends on what you eat.", 
         "havehealth":"So your health is currently {health_points}/20 HP", 
         "whyhealth":"But sir, why do I need those health points for?", 
         "yousee":"You see my friend..", "onquest":"You are on a quest..", 
@@ -41,8 +42,10 @@
         "sincewhen":"Since when has my stepbrother been like this?", 
         "sinceforever":"Nevermind, probably forever..", 
         "nochoice":"I guess I have no choice then.", 
-        "goodluck":"Good luck beating the boss!"}, 
-        "mainfight":{"startfight":"<TO START FIGHTING BOB, ENTER 'START'>", 
+        "goodluck":"Good luck beating the boss!"
+    }, 
+    "mainfight": {
+        "startfight":"<TO START FIGHTING BOB, ENTER 'START'>", 
         "money":"Money: {money:.2f}/20 dollars", 
         "johnhp":"HP: {health_points:2d}/20", 
         "bobhp":"HP: {BOB_HP:2d}/30", 
