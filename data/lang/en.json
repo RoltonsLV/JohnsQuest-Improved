@@ -10,8 +10,10 @@
         "thisjohn": "This is John. You are John",
         "playfsm":"Do you wish to play the FULL STORY MODE?\n(type yes or no)",
         "gamestart": "<To start the game, type 'Start'>",
-        "startagain":"<Type 'Start' again> \n"},
-        "prestory" :{"hellouname":"<HELLO, {username}!>",
+        "startagain":"<Type 'Start' again> \n"
+    },
+    "prestory" : {
+        "hellouname":"<HELLO, {username}!>",
         "nice2meet":"<<NICE TO MEET YOU!>",
         "hungrynow":"Right now you are hungry.",
         "20dollar":"Here, I will give you $20",
@@ -84,5 +86,6 @@
         "nochoice":"-NONE-",
         "combo":"\n\nALL PLAYER BOSSFIGHT COMBOS:\n",
         "sadending":"\n\nRECEIVED: a sad ending",
-        "goodending":"\n\nRECEIVED: a good ending"}
+        "goodending":"\n\nRECEIVED: a good ending"
+    }
 }
