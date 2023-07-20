@@ -78,7 +78,8 @@
     }, 
     "gamedata": {
         "header":"JOHN'S QUEST V2 SAVED DATA - ",
-        "username":"USERNAME: ", "fsm":"FULL STORY MODE: ",
+        "username":"USERNAME: ",
+        "fsm":"FULL STORY MODE: ",
         "selprod":"SELECTED PRODUCT: ",
         "banana":"banana",
         "cookie":"cookie",
