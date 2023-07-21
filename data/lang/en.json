@@ -33,10 +33,10 @@
         "choicenone":"Sorry, we don't have that here.."
     },
     "fullstory": {
-        "havemoney":"Anyways, you now have ${money:.2f}. Be sure to save it for later too :", 
+        "havemoney":"Anyways, you now have ${}. Be sure to save it for later too :)", 
         "secret":"Secret..", 
         "actualsecret":"Your amount of health actually depends on what you eat.", 
-        "havehealth":"So your health is currently {health_points}/20 HP", 
+        "havehealth":"So your health is currently {}/20 HP", 
         "whyhealth":"But sir, why do I need those health points for?", 
         "yousee":"You see my friend..", 
         "onquest":"You are on a quest..", 
@@ -51,7 +51,7 @@
     }, 
     "mainfight": {
         "startfight":"<TO START FIGHTING BOB, ENTER 'START'>", 
-        "money":"Money: {money:.2f}/20 dollars", 
+        "money":"Money: {}/20 dollars", 
         "johnhp":"HP: {health_points:2d}/20", 
         "bobhp":"HP: {BOB_HP:2d}/30", 
         "johnname":"Name: John", 

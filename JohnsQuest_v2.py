@@ -14,10 +14,6 @@ if os.name == 'posix':
     clr="clear"
 else: clr="cls"
 
-# Note for later: add a language select choice as well as maybe add latvian?
-
-
-
 system(clr)   # clears previous lines before the game
 now = datetime.now()
 langload = False
@@ -37,7 +33,7 @@ if os.path.isfile('savedata.txt') == False: #check savedata file - Kana Inoue
 else: print(lang['tags']['info'], lang['info']['foundsave'])
 
 game_data = open('savedata.txt', 'w')
-game_data.write(lang["gamedata"]["header"] + now.strftime("%d/%m/%Y %H:%M")+ ":\n\n")
+game_data.write(lang["gamedata"]["header"] + now.strftime("%d/%m/%Y %H:%M") + ":\n\n")
 
 def start_art():
     '''
@@ -98,7 +94,7 @@ game_data.write(username)
 
 print(lang["start"]["playfsm"])  # to either skip the narrator's guidence or not
 
-start_reply = input(lang["tags"]["you"])
+start_reply = input(lang["tags"]["you_input"])
 while str.lower(start_reply) != 'yes' and str.lower(start_reply) != 'no':
     system(clr)
     start_art()
@@ -108,7 +104,7 @@ while str.lower(start_reply) != 'yes' and str.lower(start_reply) != 'no':
 game_data.write(lang["gamedata"]["fsm"] + start_reply)
 
 print(lang["start"]["gamestart"])
-start = input(lang["tags"]["you"])
+start = input(lang["tags"]["you_input"])
 
 money = 0
 
@@ -225,25 +221,25 @@ game_data.write('\n' + lang["gamedata"]["selprod"])
 if str.lower(product) == 'banana':    # A banana for $1
     money -= 1
     health_points += 10
-    print(lang['tags']['narrator'], lang['prestory']['choicebanana'])
+    print(lang['tags']['narrator'], lang['prestory']['choicebanana'],'\n')
     game_data.write(lang["gamedata"]["banana"])
     sleep(3)
 elif str.lower(product) == 'cookie':    # A cookie for $1.50
     money -= 1.50
     health_points += 7
-    print(lang['tags']['narrator'], lang['prestory']['choicecookie'])
+    print(lang['tags']['narrator'], lang['prestory']['choicecookie'],'\n')
     game_data.write(lang["gamedata"]["cookie"])
     sleep(3)
 elif str.lower(product) == 'candy':    # A candy for $0.75
     money -= 0.75
     health_points += 3
-    print(lang['tags']['narrator'], lang['prestory']['choicecandy'])
+    print(lang['tags']['narrator'], lang['prestory']['choicecandy'],'\n')
     game_data.write(lang["gamedata"]["candy"])
     sleep(3)
 elif str.lower(product) == 'toast':    # A toast for $0.75
     money -= 0.75
     health_points += 5
-    print(lang['tags']['narrator'], lang['prestory']['choicebread'])
+    print(lang['tags']['narrator'], lang['prestory']['choicebread'],'\n')
     game_data.write(lang["gamedata"]["toast"])
     sleep(3)
 else:
@@ -254,42 +250,42 @@ else:
 
 # The dialogue begins : FULL STORY MODE
 if str.lower(start_reply) == 'yes':
-    print(f'\n[NARRATOR] Anyways, you now have ${money:.2f}. Be sure to save it for later too :)') #leave for later
+    print(lang['tags']['narrator'], lang['fullstory']['havemoney'].format(money),'\n') #leave for later
     sleep(5)
-    print("\n",lang['tags']['narrator'], lang['fullstory']['secret'])
+    print(lang['tags']['narrator'], lang['fullstory']['secret'])
     sleep(2)
     print(lang['tags']['narrator'], lang['fullstory']['actualsecret'])
     sleep(5)
-    print(f"[NARRATOR] So your health is currently {health_points}/20 HP") #leave for later
+    print(lang['tags']['narrator'], lang['fullstory']['havehealth'].format(health_points),'\n') #leave for later
     sleep(4)
-    print("\n",lang['tags']['you'], lang['fullstory']['whyhealth'] )
+    print(lang['tags']['you'], lang['fullstory']['whyhealth'],'\n')
     sleep(5)
-    print("\n",lang['tags']['narrator'], lang['fullstory']['yousee'])
+    print(lang['tags']['narrator'], lang['fullstory']['yousee'])
     sleep(2)
     print(lang['tags']['narrator'], lang['fullstory']['onquest'])
     sleep(2)
     print(lang['tags']['narrator'], lang['fullstory']['maingoal'])
     sleep(5)
-    print(lang['tags']['you'], lang['fullstory']['evilbro'])
+    print(lang['tags']['you'], lang['fullstory']['evilbro'],'\n')
     sleep(2)
-    print("\n",lang['tags']['narrator'], lang['fullstory']['yes'])
+    print(lang['tags']['narrator'], lang['fullstory']['yes'])
     sleep(2)
     print(lang['tags']['narrator'], lang['fullstory']['iffail'])
     sleep(5)
-    print("\n",lang['tags']['you'], lang['fullstory']['sincewhen'])
+    print(lang['tags']['you'], lang['fullstory']['sincewhen'],'\n')
     sleep(4)
     print(lang['tags']['you'], lang['fullstory']['sinceforever'])
     sleep(4)
     print(lang['tags']['you'], lang['fullstory']['nochoice'])
     sleep(3)
 else:
-    print(f'\n[NARRATOR] Anyways, you now have ${money}. Be sure to save it for later too :)')
+    print(lang['tags']['narrator'], lang['fullstory']['havemoney'].format(money))
     sleep(5)
-    print("\n",lang['tags']['narrator'], lang['fullstory']['secret'])
+    print(lang['tags']['narrator'], lang['fullstory']['secret'])
     sleep(2)
     print(lang['tags']['narrator'], lang['fullstory']['actualsecret'])
     sleep(5)
-    print(f"[NARRATOR] So your health is currently {health_points}/20 HP")
+    print(lang['tags']['narrator'], lang['fullstory']['havehealth'].format(health_points))
     sleep(4)
     print(lang['tags']['narrator'], lang['fullstory']['goodluck'])
     sleep(3)
