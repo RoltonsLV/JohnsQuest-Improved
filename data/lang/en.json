@@ -4,7 +4,8 @@
         "info": "[INFO]", 
         "narrator": "[NARRATOR]", 
         "username":"[USERNAME]",
-        "you":"[YOU] "
+        "you":"[YOU]",
+        "you_input":"[YOU] "
     }, 
     "start": {
         "thisjohn": "This is John. You are John",
@@ -75,7 +76,8 @@
     },
     "ending": {
         "win":"<YOU WIN!!!!!>", 
-        "thankyou":"<THANK YOU SO MUCH FOR PLAYING MY GAME, {username}!>"
+        "thankyou":"<THANK YOU SO MUCH FOR PLAYING MY GAME, {username}!>",
+        "entertocnt":"\n\n<PRESS 'ENTER' TO CONTINUE> "
     }, 
     "gamedata": {
         "header":"JOHN'S QUEST V2 SAVED DATA - ",

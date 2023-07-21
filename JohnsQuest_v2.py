@@ -90,7 +90,7 @@ def John():
 
 start_art()
 print(lang["start"]["enterusername"])      # enter your username
-username = input(lang["tags"]["you"])
+username = input(lang["tags"]["you_input"])
 
 game_data.write(lang["gamedata"]["username"])
 game_data.write(username)
@@ -103,7 +103,7 @@ while str.lower(start_reply) != 'yes' and str.lower(start_reply) != 'no':
     system(clr)
     start_art()
     print(lang["start"]["playfsm"])
-    start_reply = input(lang["tags"]["you"])
+    start_reply = input(lang["tags"]["you_input"])
 
 game_data.write(lang["gamedata"]["fsm"] + start_reply)
 
@@ -216,7 +216,7 @@ system(clr)
 food_shelf()
 
 print(lang['tags']['narrator'], lang['prestory']['buychoice'])      # It's time to buy something to eat!
-product = input(lang["tags"]["you"])
+product = input(lang["tags"]["you_input"])
 
 system(clr)
 
@@ -232,66 +232,66 @@ elif str.lower(product) == 'cookie':    # A cookie for $1.50
     money -= 1.50
     health_points += 7
     print(lang['tags']['narrator'], lang['prestory']['choicecookie'])
-    game_data.write('cookie')
+    game_data.write(lang["gamedata"]["cookie"])
     sleep(3)
 elif str.lower(product) == 'candy':    # A candy for $0.75
     money -= 0.75
     health_points += 3
     print(lang['tags']['narrator'], lang['prestory']['choicecandy'])
-    game_data.write('candy')
+    game_data.write(lang["gamedata"]["candy"])
     sleep(3)
 elif str.lower(product) == 'toast':    # A toast for $0.75
     money -= 0.75
     health_points += 5
     print(lang['tags']['narrator'], lang['prestory']['choicebread'])
-    game_data.write('toast')
+    game_data.write(lang["gamedata"]["toast"])
     sleep(3)
 else:
     print(lang['tags']['narrator'], lang['prestory']['choicenone'])
-    game_data.write('-NONE-')
+    game_data.write(lang["gamedata"]["nochoice"])
     sleep(3)
     # WILL HAVE A MAJOR FIX
 
 # The dialogue begins : FULL STORY MODE
 if str.lower(start_reply) == 'yes':
-    print(f'\n[NARRATOR] Anyways, you now have ${money:.2f}. Be sure to save it for later too :)')
+    print(f'\n[NARRATOR] Anyways, you now have ${money:.2f}. Be sure to save it for later too :)') #leave for later
     sleep(5)
-    print("\n[NARRATOR] Secret..")
+    print("\n",lang['tags']['narrator'], lang['fullstory']['secret'])
     sleep(2)
-    print("[NARRATOR] Your amount of health actually depends on what you eat.")
+    print(lang['tags']['narrator'], lang['fullstory']['actualsecret'])
     sleep(5)
-    print(f"[NARRATOR] So your health is currently {health_points}/20 HP")
+    print(f"[NARRATOR] So your health is currently {health_points}/20 HP") #leave for later
     sleep(4)
-    print("\n[YOU] But sir, why do I need those health points for?")
+    print("\n",lang['tags']['you'], lang['fullstory']['whyhealth'] )
     sleep(5)
-    print("\n[NARRATOR] You see my friend..")
+    print("\n",lang['tags']['narrator'], lang['fullstory']['yousee'])
     sleep(2)
-    print("[NARRATOR] You are on a quest..")
+    print(lang['tags']['narrator'], lang['fullstory']['onquest'])
     sleep(2)
-    print("[NARRATOR] And your main goal is to defeat BOB!!!")
+    print(lang['tags']['narrator'], lang['fullstory']['maingoal'])
     sleep(5)
-    print("\n[YOU] My evil stepbrother?")
+    print(lang['tags']['you'], lang['fullstory']['evilbro'])
     sleep(2)
-    print("\n[NARRATOR] Yes..")
+    print("\n",lang['tags']['narrator'], lang['fullstory']['yes'])
     sleep(2)
-    print("[NARRATOR] If you fail to defeat him, the world will have the same fate as you'll have..")
+    print(lang['tags']['narrator'], lang['fullstory']['iffail'])
     sleep(5)
-    print("\n[YOU] Since when has my stepbrother been like this?")
+    print("\n",lang['tags']['you'], lang['fullstory']['sincewhen'])
     sleep(4)
-    print("[YOU] Nevermind, probably forever..")
+    print(lang['tags']['you'], lang['fullstory']['sinceforever'])
     sleep(4)
-    print("[YOU] I guess I have no choice then.")
+    print(lang['tags']['you'], lang['fullstory']['nochoice'])
     sleep(3)
 else:
     print(f'\n[NARRATOR] Anyways, you now have ${money}. Be sure to save it for later too :)')
     sleep(5)
-    print("\n[NARRATOR] Secret..")
+    print("\n",lang['tags']['narrator'], lang['fullstory']['secret'])
     sleep(2)
-    print("[NARRATOR] Your amount of health actually depends on what you eat.")
+    print(lang['tags']['narrator'], lang['fullstory']['actualsecret'])
     sleep(5)
     print(f"[NARRATOR] So your health is currently {health_points}/20 HP")
     sleep(4)
-    print('\n[NARRATOR] Good luck beating the boss!')
+    print(lang['tags']['narrator'], lang['fullstory']['goodluck'])
     sleep(3)
 
 system(clr)   # The part where you get into action
@@ -324,12 +324,12 @@ def show_sad_ending():
 
 system(clr)
 boss_start_art()
-print('\n<TO START FIGHTING BOB, ENTER "START">')
-boss_start = input('[YOU] ')
+print('\n', lang["mainfight"]["startfight"])
+boss_start = input(lang["tags"]["you_input"])
 
 while str.lower(boss_start) != 'start':
-    print('<ENTER "START" AGAIN>')
-    boss_start = input('[YOU] ')
+    print(lang["start"]["startagain"])
+    boss_start = input(lang["tags"]["you_input"])
 
 strength_points = 2         # you give BOB -2 HP
 BOB_HP = 30                 # BOB has 30 HP
@@ -371,7 +371,7 @@ def boss_stage():
 system(clr)
 boss_stage()
 
-game_data.write('\n\nALL PLAYER BOSSFIGHT COMBOS:\n')
+game_data.write(lang["gamedata"]["combo"])
 
 def A_choice():
     'ATTACK BOB!!'
@@ -380,9 +380,9 @@ def A_choice():
 
     BOB_HP -= strength_points
     health_points -= BOB_strength_points
-    print('\nYou attacked BOB!! His HP dropped by', strength_points)
+    print('\n',lang["mainfight"]["johnatk"], strength_points)
     sleep(1.5)
-    print('BOB attacked you back!! Your HP dropped by', BOB_strength_points)
+    print(lang["mainfight"]["bobatk"], BOB_strength_points)
     sleep(1.5)
     system(clr)
     boss_stage()
@@ -399,14 +399,14 @@ def B_choice():
         money -= 7
         BOB_strength_points -= 1
         health_points -= BOB_strength_points
-        print(f'\nYou bought a piece of armor!')
+        print("\n",lang["mainfight"]["boughtarmor"])
         sleep(1.5)
         print(F'BOB gives you -{BOB_strength_points} damage')
         sleep(2)
     else:
         health_points -= BOB_strength_points
-        print("\nYou don't have enough money left.")
-        print('BOB attacked you! Your HP dropped by', BOB_strength_points)
+        print("\n",lang["mainfight"]["nomoney"])
+        print(lang["mainfight"]["bobatk"], BOB_strength_points)
         sleep(4)
         
     system(clr)
@@ -419,23 +419,23 @@ def N_choice():
 
     if strength_points > 0:
         strength_points -= 1
-        print("\nYou blocked BOB's attack!")
+        print("\n",lang["mainfight"]["johnblock"])
         sleep(1.5)
-        print('But you became weaker after his hit..')
+        print(lang["mainfight"]["johnweaker"])
         sleep(1.5)
-        print('Your strength points has gone down by', 1)
+        print(lang["mainfight"]["johnstrenghminus"], 1)
         sleep(1.5)
     else:
         health_points -= BOB_strength_points
-        print("\nYou don't have enough strength left.")
-        print('BOB attacked you! Your HP dropped by', BOB_strength_points)
+        print("\n", lang["mainfight"]["nostrength"])
+        print(lang["mainfight"]["bobatk"], BOB_strength_points)
         sleep(4)
     
     system(clr)
     boss_stage()
 
 while BOB_HP > 0:       # while BOB is alive, you choose between 3 of them
-    choice = input('<CHOOSE AN ACTION> ')
+    choice = input(lang["mainfight"]["actchoose"])
     if str.upper(choice) == 'A':
         A_choice()
         game_data.write('A   ')
@@ -449,18 +449,18 @@ while BOB_HP > 0:       # while BOB is alive, you choose between 3 of them
     # Sad ending..
     if health_points <= 0:
 
-        game_data.write('\n\nRECEIVED: a sad ending')
+        game_data.write(lang["gamedata"]["sadending"])
 
         system(clr)
         show_sad_ending()
-        skip = input('\n\n<PRESS "ENTER" TO CONTINUE> ')
+        skip = input(lang["ending"]["entertocnt"])
         system(clr)
         break           # allows me to exit the loop
 
     # VICTORY!!!!!!!!!!!!!!!!!!!!!!!!!
     elif BOB_HP <= 0:
 
-        game_data.write('\n\nRECEIVED: a good ending')
+        game_data.write(lang["gamedata"]["goodending"])
 
         system(clr)
         print('''
@@ -503,7 +503,7 @@ while BOB_HP > 0:       # while BOB is alive, you choose between 3 of them
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
         ''')
         sleep(4)
-        end_enter = input('<PRESS "ENTER" TO CONTINUE> ')
+        end_enter = input(lang["ending"]["entertocnt"])
         system(clr)
 
 game_data.close()   # stops and closes the text file
