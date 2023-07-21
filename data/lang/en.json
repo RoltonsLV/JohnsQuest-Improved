@@ -1,15 +1,16 @@
 {
     "tags": {
-        "debug": "DEBUG", 
-        "info": "INFO", 
-        "narrator": "NARRATOR", 
-        "username":"USERNAME",
-        "you":"YOU"
+        "debug": "[DEBUG]", 
+        "info": "[INFO]", 
+        "narrator": "[NARRATOR]", 
+        "username":"[USERNAME]",
+        "you":"[YOU] "
     }, 
     "start": {
         "thisjohn": "This is John. You are John",
-        "playfsm":"Do you wish to play the FULL STORY MODE?\n(type yes or no)",
-        "gamestart": "<To start the game, type 'Start'>",
+        "enterusername": "<Enter your USERNAME>",
+        "playfsm":"\nDo you wish to play the FULL STORY MODE?\n(type yes or no)",
+        "gamestart": "\n<To start the game, type 'Start'>",
         "startagain":"<Type 'Start' again> \n"
     },
     "prestory" : {
@@ -79,7 +80,7 @@
     "gamedata": {
         "header":"JOHN'S QUEST V2 SAVED DATA - ",
         "username":"USERNAME: ",
-        "fsm":"FULL STORY MODE: ",
+        "fsm":"\nFULL STORY MODE: ",
         "selprod":"SELECTED PRODUCT: ",
         "banana":"banana",
         "cookie":"cookie",
@@ -89,5 +90,13 @@
         "combo":"\n\nALL PLAYER BOSSFIGHT COMBOS:\n",
         "sadending":"\n\nRECEIVED: a sad ending",
         "goodending":"\n\nRECEIVED: a good ending"
+    },
+    "debug": {
+        "systype": "System type is",
+        "langloaddone": "Finished loading EN language file"
+    },
+    "info": {
+        "nosave": "savedata.txt not found! Creating one for you",
+        "foundsave": "found previous savedata.txt"
     }
 }

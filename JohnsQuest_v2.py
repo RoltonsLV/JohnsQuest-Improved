@@ -5,6 +5,7 @@ from time import sleep
 from os import system
 import os.path
 from datetime import datetime
+import json
 
 debug = True; #Set this flag to enable debug msgs (mainly systemtype for now) - Kana Inoue
 
@@ -13,17 +14,30 @@ if os.name == 'posix':
     clr="clear"
 else: clr="cls"
 
+# Note for later: add a language select choice as well as maybe add latvian?
+
+
+
 system(clr)   # clears previous lines before the game
 now = datetime.now()
-
-if debug == True: print('[DEBUG] System type is', os.name) #print systemtype for debug - Kana Inoue
+langload = False
+print('Please choose the language\nCurrent options are: en (English)')
+while langload == False:
+    
+    clang=input("> ")
+    if clang == "en": 
+        langload=True
+        with open('./data/lang/en.json') as f: lang = json.load(f)
+        if debug == True: print(lang['tags']['debug'], lang['debug']['langloaddone'])
+    else: print('Please try again.\nCurrent options are: en (English)') 
+if debug == True: print(lang["tags"]["debug"], lang["debug"]["systype"], os.name) #print systemtype for debug - Kana Inoue
 
 if os.path.isfile('savedata.txt') == False: #check savedata file - Kana Inoue
-    print('[INFO] savedata.txt not found! Creating one for you')
-else: print('[INFO] found previous savedata.txt')
+    print(lang['tags']['info'], lang['info']['nosave'])
+else: print(lang['tags']['info'], lang['info']['foundsave'])
 
 game_data = open('savedata.txt', 'w')
-game_data.write("JOHN'S QUEST V2 SAVED DATA - " + now.strftime("%d/%m/%Y %H:%M")+ ":\n\n")
+game_data.write(lang["gamedata"]["header"] + now.strftime("%d/%m/%Y %H:%M")+ ":\n\n")
 
 def start_art():
     '''
@@ -75,33 +89,33 @@ def John():
  # You insert 'start' to start John's Quest
 
 start_art()
-print('<Enter your USERNAME>')      # enter your username
-username = input('[YOU] ')
+print(lang["start"]["enterusername"])      # enter your username
+username = input(lang["tags"]["you"])
 
-game_data.write('USERNAME: ')
+game_data.write(lang["gamedata"]["username"])
 game_data.write(username)
 
 
-print("\nDo you wish to play the FULL STORY MODE?\n(type yes or no)")  # to either skip the narrator's guidence or not
+print(lang["start"]["playfsm"])  # to either skip the narrator's guidence or not
 
-start_reply = input('[YOU] ')
+start_reply = input(lang["tags"]["you"])
 while str.lower(start_reply) != 'yes' and str.lower(start_reply) != 'no':
     system(clr)
     start_art()
-    print("\nDo you wish to play the FULL STORY MODE?\n(type yes or no)")
-    start_reply = input('[YOU] ')
+    print(lang["start"]["playfsm"])
+    start_reply = input(lang["tags"]["you"])
 
-game_data.write("\nFULL STORY MODE: " + start_reply)
+game_data.write(lang["gamedata"]["fsm"] + start_reply)
 
-print('\n<To start the game, type "Start">')
-start = input('[YOU] ')
+print(lang["start"]["gamestart"])
+start = input(lang["tags"]["you"])
 
 money = 0
 
 while str.lower(start) != "start":      # Start of the game
     system(clr)
     start_art()
-    start = input('<Type "Start" again> \n')
+    start = input(lang["start"]["startagain"])
 
 system(clr)
 
@@ -128,9 +142,10 @@ print(f'''
 || |         | ||
 () |         | ()
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-[NARRATOR] This is John. You are John.
 ''')
+print(lang['tags']['narrator'], lang['start']['thisjohn'])
 sleep(2)
+
 system(clr)
 print(f'''
        ___
@@ -149,15 +164,15 @@ print(f'''
 || |         | ||
 () |         | ()
 ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
-[NARRATOR] This is John. You are John.
 ''')
+print(lang['tags']['narrator'], lang['start']['thisjohn'], "\n")
 sleep(2)
 
-print("\n[NARRATOR] Right now you are hungry.")
+print(lang['tags']['narrator'], lang['prestory']['hungrynow'])
 sleep(3)
-print("[NARRATOR] Here, I will give you $20")
+print(lang['tags']['narrator'], lang['prestory']['20dollar'])
 sleep(2)
-print("[NARRATOR] But spend it wisely..")
+print(lang['tags']['narrator'], lang['prestory']['spendwisely'])
 sleep(3)
 
 money = 20     # the narrator was so generous he gave you $20, congrats
@@ -200,39 +215,39 @@ def food_shelf():
 system(clr)
 food_shelf()
 
-print('[NARRATOR] What will you buy?')      # It's time to buy something to eat!
-product = input('[YOU] ')
+print(lang['tags']['narrator'], lang['prestory']['buychoice'])      # It's time to buy something to eat!
+product = input(lang["tags"]["you"])
 
 system(clr)
 
-game_data.write('\nSELECTED PRODUCT: ')
+game_data.write('\n' + lang["gamedata"]["selprod"])
 
 if str.lower(product) == 'banana':    # A banana for $1
     money -= 1
     health_points += 10
-    print('[NARRATOR] Good pick! What a healthy way to start!')
-    game_data.write('banana')
+    print(lang['tags']['narrator'], lang['prestory']['choicebanana'])
+    game_data.write(lang["gamedata"]["banana"])
     sleep(3)
 elif str.lower(product) == 'cookie':    # A cookie for $1.50
     money -= 1.50
     health_points += 7
-    print('[NARRATOR] Decent! But wow, one cookie for $1.50?')
+    print(lang['tags']['narrator'], lang['prestory']['choicecookie'])
     game_data.write('cookie')
     sleep(3)
 elif str.lower(product) == 'candy':    # A candy for $0.75
     money -= 0.75
     health_points += 3
-    print('[NARRATOR] Alright! Decent choice.')
+    print(lang['tags']['narrator'], lang['prestory']['choicecandy'])
     game_data.write('candy')
     sleep(3)
 elif str.lower(product) == 'toast':    # A toast for $0.75
     money -= 0.75
     health_points += 5
-    print("[NARRATOR] Oh? You also like bread? I guess it can't be just me.")
+    print(lang['tags']['narrator'], lang['prestory']['choicebread'])
     game_data.write('toast')
     sleep(3)
 else:
-    print("[NARRATOR] Sorry, we don't have that here..")
+    print(lang['tags']['narrator'], lang['prestory']['choicenone'])
     game_data.write('-NONE-')
     sleep(3)
     # WILL HAVE A MAJOR FIX
