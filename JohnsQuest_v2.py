@@ -17,13 +17,17 @@ else: clr="cls"
 system(clr)   # clears previous lines before the game
 now = datetime.now()
 langload = False
-print('Please choose the language\nCurrent options are: en (English)')
+print('Please choose the language\nCurrent options are: en (English), vi (Tiếng Việt)')
 while langload == False:
     
     clang=input("> ")
     if clang == "en": 
         langload=True
         with open('./data/lang/en.json') as f: lang = json.load(f)
+        if debug == True: print(lang['tags']['debug'], lang['debug']['langloaddone'])
+    elif clang=="vi":
+        langload=True
+        with open('./data/lang/vi.json') as f: lang = json.load(f)
         if debug == True: print(lang['tags']['debug'], lang['debug']['langloaddone'])
     else: print('Please try again.\nCurrent options are: en (English)') 
 if debug == True: print(lang["tags"]["debug"], lang["debug"]["systype"], os.name) #print systemtype for debug - Kana Inoue

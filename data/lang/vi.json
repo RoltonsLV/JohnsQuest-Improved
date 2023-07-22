@@ -1,0 +1,103 @@
+{
+    "tags": {
+        "debug": "[GỠ LỖI]", 
+        "info": "[THÔNG TIN]", 
+        "narrator": "[DẪN TRUYỆN]", 
+        "username":"[NGƯỜI DÙNG]",
+        "you":"[BẠN]",
+        "you_input":"[BẠN] "
+    }, 
+    "start": {
+        "thisjohn": "Đây là John. Bạn là John.",
+        "enterusername": "<Nhập TÊN NGƯỜI DÙNG của bạn>",
+        "playfsm":"\nBạn có muốn đọc FULL TRUYỆN không?\n(nhập yes hoặc no)",
+        "gamestart": "\n<Nhập 'start' để bắt đầu>",
+        "startagain":"<Nhập 'start' lại> \n"
+    },
+    "prestory" : {
+        "hellouname":"<CHÀO, {username}!>",
+        "nice2meet":"<<RẤT VUI ĐƯỢC GẶP BẠN!>",
+        "hungrynow":"Bây giờ bạn đang đói",
+        "20dollar":"Giờ toi sẽ cho bạn $20",
+        "spendwisely":"Xài cho kỹ vào nha",
+        "banana":"Banana: $1",
+        "cookie":"Cookie: $1.50",
+        "candy":"Candy: $0.75",
+        "toast":"Toast: $0.75",
+        "buychoice":"Bạn sẽ mua gì?",
+        "choicebanana":"Bạn ăn khỏe ha?",
+        "choicecookie":"Ổn đó, nhưng cái bánh gì tới $1.50 dữ vậy trời...",
+        "choicecandy":"Lựa chọn ổn đó",
+        "choicebread":"Bạn cũng thích bánh mì à? Nghĩ chắc không chỉ mình tôi đâu",
+        "choicenone":"Xin lỗi, chúng tôi không bán thứ này..."
+    },
+    "fullstory": {
+        "havemoney":"Giờ bạn đang có ${}. Nhớ giữ để tí xài nữa :)", 
+        "secret":"Bật mí...", 
+        "actualsecret":"HP của bạn phụ thuộc cái mà bạn mới ăn", 
+        "havehealth":"Hiện bạn đang có {}/20 HP", 
+        "whyhealth":"Vậy cái HP này để làm gì vậy?", 
+        "yousee":"Bạn thấy đó,...", 
+        "onquest":"Bạn đang trên một cuộc hành trình", 
+        "maingoal":"Và bạn phải tiêu diệt BOB!!!", 
+        "evilbro":"Người anh xấu xa của tôi?", 
+        "yes":"Ừ...", 
+        "iffail":"Nếu bạn không đánh bại được nó, thế giới sẽ chung số phận với bạn đó", 
+        "sincewhen":"Anh tôi như vậy từ khi nào rồi...", 
+        "sinceforever":"Kệ nó, chắc cũng lâu rồi", 
+        "nochoice":"Chắc cũng chả có đường nào khác", 
+        "goodluck":"Đấm boss tốt nha! "
+    }, 
+    "mainfight": {
+        "startfight":"<TO START FIGHTING BOB, ENTER 'START'>", 
+        "money":"Money: {}/20 dollars", 
+        "johnhp":"HP: {health_points:2d}/20", 
+        "bobhp":"HP: {BOB_HP:2d}/30", 
+        "johnname":"Name: John", 
+        "johnstrength":"{strength_points} per damage", 
+        "bobname":"Name: BOB", 
+        "bobstrength":"{BOB_strength_points} per damage", 
+        "typea":"Type <A> to attack!", 
+        "typeb":"Type <B> to buy random armor!", 
+        "typen":"Type <N> to block attack!", 
+        "7dollars":"(for $7.00)", 
+        "johnatk":"You attacked BOB!! His HP dropped by", 
+        "bobatk":"BOB attacked you back!! Your HP dropped by", 
+        "boughtarmor":"You bought a piece of armor!", 
+        "bobdmg":"BOB gives you -{BOB_strength_points} damage", 
+        "nomoney":"You don't have enough money left.", 
+        "johnblock":"You blocked BOB's attack!", 
+        "johnweaker":"But you became weaker after his hit..", 
+        "johnstrengthminus":"Your strength points has gone down by", 
+        "nostrength":"You don't have enough strength left.",
+        "actchoose":"<CHOOSE AN ACTION>",
+        "pressenter":"<PRESS 'ENTER' TO CONTINUE>"
+    },
+    "ending": {
+        "win":"<YOU WIN!!!!!>", 
+        "thankyou":"<THANK YOU SO MUCH FOR PLAYING MY GAME, {username}!>",
+        "entertocnt":"\n\n<PRESS 'ENTER' TO CONTINUE> "
+    }, 
+    "gamedata": {
+        "header":"DỮ LIỆU LƯU CHO JOHN'S QUEST V2.1 - ",
+        "username":"TÊN NGƯỜI DÙNG: ",
+        "fsm":"\nFULL TRUYỆN: ",
+        "selprod":"SẢN PHẨM ĐÃ MUA: ",
+        "banana":"chuối",
+        "cookie":"bánh",
+        "candy":"kẹo",
+        "toast":"bánh mì",
+        "nochoice":"-KHÔNG CÓ-",
+        "combo":"\n\nTHỨ TỰ ĐÁNH BOSS\n",
+        "sadending":"\n\nKẾT THÚC: buồn",
+        "goodending":"\n\nKẾN THÚC: có hậu"
+    },
+    "debug": {
+        "systype": "Hệ thống thuộc loại",
+        "langloaddone": "Nạp file ngôn ngữ VI thành công"
+    },
+    "info": {
+        "nosave": "không tìm thấy savedata.txt! Đang tạo file đó cho bạn",
+        "foundsave": "đã tim thấy savedata.txt"
+    }
+}
